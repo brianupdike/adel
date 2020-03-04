@@ -1,0 +1,23 @@
+https://ssh.cloud.google.com/cloudshell/editor?hl=en_US&fromcloudshell=true
+
+gcloud config set compute/zone us-central1-a
+gcloud container clusters create my-cluster
+gcloud container clusters get-credentials my-cluster
+
+****************
+
+kubectl create deployment hello-app --image=gcr.io/google-samples/hello-app:1.0
+kubectl expose deployment hello-app --type=LoadBalancer --port 8080
+service/hello-server exposed
+
+****************
+
+kubectl get service
+http://IP:8080
+
+****************
+
+gcloud container clusters delete my-cluster
+
+****************
+================
